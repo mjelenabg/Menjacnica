@@ -14,49 +14,64 @@ public class Valuta {
 	public String getNaziv() {
 		return naziv;
 	}
+	
 	public void setNaziv(String naziv) {
-		if(naziv==null || naziv=="") throw new RuntimeException("Morate uneti naziv.");
+		if(naziv == null || naziv == "") 
+			throw new RuntimeException("Morate uneti naziv.");
 		this.naziv = naziv;
 	}
 	
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
+	
 	public void setSkraceniNaziv(String skraceniNaziv) {
-		if(skraceniNaziv==null || skraceniNaziv=="") throw new RuntimeException("Morate uneti skraceni naziv.");
+		if(skraceniNaziv == null || skraceniNaziv == "") 
+			throw new RuntimeException("Morate uneti skraceni naziv.");
 		this.skraceniNaziv = skraceniNaziv;
 	}
 	
 	public GregorianCalendar getDatum() {
 		return datum;
 	}
+	
 	public void setDatum(GregorianCalendar datum) {
-		if(datum==null) throw new RuntimeException("Morate uneti datum.");
+		if(datum == null)
+			throw new RuntimeException("Morate uneti datum.");
 		this.datum = datum;
 	}
 	
 	public double getProdajniKurs() {
 		return prodajniKurs;
 	}
+	
 	public void setProdajniKurs(double prodajniKurs) {
-		if(prodajniKurs<=0) throw new RuntimeException("Morate uneti ispravan prodajni kurs");
+		if(prodajniKurs <= 0)
+			throw new RuntimeException("Morate uneti ispravan prodajni kurs.");
 		this.prodajniKurs = prodajniKurs;
 	}
 	
 	public double getKupovniKurs() {
 		return kupovniKurs;
 	}
+	
 	public void setKupovniKurs(double kupovniKurs) {
-		if(kupovniKurs<=0) throw new RuntimeException("Morate uneti ispravan kupovni kurs");
+		if(kupovniKurs <= 0)
+			throw new RuntimeException("Morate uneti ispravan kupovni kurs.");
 		this.kupovniKurs = kupovniKurs;
 	}
 	
 	public double getSrednjiKurs() {
 		return srednjiKurs;
 	}
+	
 	public void setSrednjiKurs(double srednjiKurs) {
-		if(srednjiKurs<=0) throw new RuntimeException("Morate uneti ispravan srednji kurs");
-		if(srednjiKurs>prodajniKurs||srednjiKurs<kupovniKurs) throw new RuntimeException("Srednji kurs se mora biti veci od kupovnog i manji od prodajnog kursa.");
+		if(srednjiKurs <= 0) 
+			throw new RuntimeException("Morate uneti ispravan srednji kurs.");
+		
+		if(srednjiKurs > prodajniKurs || srednjiKurs < kupovniKurs) 
+			throw new RuntimeException("Srednji kurs mora biti veci od kupovnog i manji od prodajnog kursa.");
+	
 		this.srednjiKurs = srednjiKurs;
 	}
 	
@@ -66,6 +81,7 @@ public class Valuta {
 				+ ", kupovni kurs " + kupovniKurs + ", i srednji kurs "
 				+ srednjiKurs + ".";
 	}
+	
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -82,6 +98,7 @@ public class Valuta {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
+	
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
