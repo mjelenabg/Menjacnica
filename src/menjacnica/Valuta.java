@@ -15,6 +15,7 @@ public class Valuta {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
+		if(naziv==null || naziv=="") throw new RuntimeException("Morate uneti naziv.");
 		this.naziv = naziv;
 	}
 	
@@ -22,6 +23,7 @@ public class Valuta {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
+		if(skraceniNaziv==null || skraceniNaziv=="") throw new RuntimeException("Morate uneti skraceni naziv.");
 		this.skraceniNaziv = skraceniNaziv;
 	}
 	
@@ -29,6 +31,7 @@ public class Valuta {
 		return datum;
 	}
 	public void setDatum(GregorianCalendar datum) {
+		if(datum==null) throw new RuntimeException("Morate uneti datum.");
 		this.datum = datum;
 	}
 	
@@ -36,6 +39,7 @@ public class Valuta {
 		return prodajniKurs;
 	}
 	public void setProdajniKurs(double prodajniKurs) {
+		if(prodajniKurs<=0) throw new RuntimeException("Morate uneti ispravan prodajni kurs");
 		this.prodajniKurs = prodajniKurs;
 	}
 	
@@ -43,6 +47,7 @@ public class Valuta {
 		return kupovniKurs;
 	}
 	public void setKupovniKurs(double kupovniKurs) {
+		if(kupovniKurs<=0) throw new RuntimeException("Morate uneti ispravan kupovni kurs");
 		this.kupovniKurs = kupovniKurs;
 	}
 	
@@ -50,6 +55,8 @@ public class Valuta {
 		return srednjiKurs;
 	}
 	public void setSrednjiKurs(double srednjiKurs) {
+		if(srednjiKurs<=0) throw new RuntimeException("Morate uneti ispravan srednji kurs");
+		if(srednjiKurs>prodajniKurs||srednjiKurs<kupovniKurs) throw new RuntimeException("Srednji kurs se mora biti veci od kupovnog i manji od prodajnog kursa.");
 		this.srednjiKurs = srednjiKurs;
 	}
 	
